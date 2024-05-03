@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="buto-div">
+    <button class="All">All</button>
+    <button class="tbilisi">tbilisi</button>
+  </div>
+  <div class="nav-div">
+    <div class="nav-1">
+      <span class="nav-1">Hotel</span>
+      <span class="nav-1">Room</span>
+      <span class="nav-1">Customer</span>
+    </div>
+    <div class="nav-2">
+      <span>status</span>
+      <span>Check in</span>
+      <span>Check out</span>
+      <span>Total Price</span>
+      <span>Actions</span>
+    </div>
+  </div>
+  <div class="border"></div>
+  <br>
+    <div *ngFor="let data of registr.idData" class="div-data">
+              <div class="img">
+                <img
+                   [src]="imgHotel"
+                   alt=""
+                  width="60px"
+                  height="60px"
+                />
+                <div class="junior">
+                    <div ><pre>  {{ names }}</pre></div>
+                    <div><p style="margin-left: 15px;">Tbilisi</p></div>
+                  </div>
+              </div>
+              <div class="img-room">
+                <div>
+                <img 
+                 [src]="registr.hotelIdData"
+                  alt=""
+                  width="60px"
+                  height="60px"
+                />
+              </div>
+              </div>
+              <div class="junior">
+                <div><pre>{{data.customerId}}</pre></div>
+                <div><h6>99$</h6></div>
+              </div>
+              <div class="junior">
+                <div><pre>Name: {{data.customerName}}</pre></div>
+                <div><pre>Number: {{data.customerPhone}}</pre></div>
+              </div>
+              <div class="info-Data">
+                <h5>Booked</h5>
+              </div>
+              <div class="info-Data">
+                <pre>{{data.checkInDate}}</pre>
+              </div>
+              <div class="info-Data">
+                <pre>{{data.checkOutDate}}</pre>
+              </div>
+              <div class="info-Data"><pre>{{data.totalPrice}}$</pre></div>
+              <div class="info-Data">
+                <button (click)="clickDelet(data.id)" style="width: 70px; height: 60px; background-color: red; color: white;">delete</button>
+              </div>
+            </div>
+          </div>
+   
+ 
+
+
+
+
+    
+

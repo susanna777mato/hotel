@@ -1,0 +1,14 @@
+<div class="buto-div">
+  <button class="All">All</button>
+  <button class="tbilisi">tbilisi</button>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center cart-item">
+  <div *ngFor="let product of tbilisiCart" class="card" style="width: 18rem">
+    <img [src]="product.featuredImage" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h6 class="card-title">{{ product.name }}</h6>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>

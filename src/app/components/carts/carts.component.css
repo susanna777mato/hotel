@@ -1,0 +1,52 @@
+
+.card-divi{
+  display: flex;
+  gap: 25px;
+  padding-top: 30px;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.info-divi{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h2{
+  text-align: center;
+}
+
+img{
+  display: flex;
+  justify-content: center;
+}
+
+
+a{
+  text-align: center;
+  background-color: aqua;
+  color: black;
+  text-decoration: none;
+}
+
+button{
+  background-color: black;
+  color: aqua;
+}
+
+pre{
+  font-size: 13px;
+}

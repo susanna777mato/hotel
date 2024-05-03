@@ -1,0 +1,51 @@
+.div-containere {
+   display: flex;
+   flex-direction: column;
+
+}
+
+.div-element{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.907);
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    gap: 30px;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+.svg{
+    display: flex;
+    gap: 30px;
+}
+
+.footer-text{
+    display: flex;
+    gap: 50px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.684);
+}
+
+.footer-containere{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.span-footer{
+    background-color: black;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   color: rgba(255, 255, 255, 0.518);
+}

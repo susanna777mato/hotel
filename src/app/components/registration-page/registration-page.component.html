@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="carusel-div">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div *ngFor="let image of caruselImg" class="carousel-item active">
+          <img
+            [src]="image.source"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="input-div">
+    <div>
+      <h1>Reservation</h1>
+    </div>
+    <div class="junior-price">
+      <h4 style="text-align: center"> {{name}}:{{priceNight}}$</h4>
+      <h5 class="night">a Night</h5>
+    </div>
+    <div  class="check-input">
+      <label>Check-in</label>
+      <input (change)="clickDate()" [(ngModel)]="checkInDate" min={{minDate}} class="check" type="date" />
+    </div>
+    <div class="check-input">
+      <label>Check-out</label>
+      <input (change)="clickDate()" [(ngModel)]="checkOutDate" min={{checkInDate}} class="check" type="date" />
+    </div>
+    <div class="nameinput-div">
+      <label>Customer Name</label>
+      <input
+        [(ngModel)]="customerName"
+        class="text-input"
+        type="text"
+        placeholder="plase enter your name"
+      />
+    </div>
+    <div class="nameinput-div">
+      <label>Customer Tel:Phone</label>
+      <input
+       [(ngModel)]="customerPhone"
+        class="text-input"
+        type="text"
+        placeholder="plase enter your phone"
+      />
+    </div>
+    <div class="totali-price">
+      <h2 style="text-align: center">totali price:{{totalPrice}}$</h2>
+    </div>
+    <div class="button">
+      <button (click)="dataYestOnit()" class="buto">BOOK NOW</button>
+    </div>
+  </div>
+</div>
+<br />
+<hr />
+<div class="infodiv">
+  <div class="title-data">
+    <div class="Room-Detals">
+      <h2>Room Detals</h2>
+    </div>
+    <div class="Overviev">
+      <h2>Overviev</h2>
+    </div>
+  </div>
+<div class="container-footer">
+  <div class="footer">
+    <div><h3>Table Overviev</h3></div>
+    <div class="colum">
+      <div class="first">
+        <div><p>✅Doubel bed</p></div>
+        <div><p>✅free internet</p></div>
+        <div><p>✅free newspaper</p></div>
+        <div><p>✅private balcony</p></div>
+      </div>
+      <div class="first">
+        <div><p>✅60 square meter</p></div>
+        <div><p>✅Beac view</p></div>
+        <div><p>✅2 persons</p></div>
+        <div><p>✅flat Screen TV</p></div>
+      </div>
+      <div class="first">
+        <div><p>✅Doubel bed</p></div>
+        <div><p>✅free internet</p></div>
+        <div><p>✅breakfast included</p></div>
+        <div><p>✅jacuzzi</p></div>
+      </div>
+    </div>
+      <pre>
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas eaque 
+id corrupti nemo deleniti optio ut doloribus, at nulla ducimus aliquid! 
+Hic delectus in placeat praesentium autem deserunt voluptas possimus?
+      </pre>
+    </div>
+    <div style="height: 300px; display: flex; align-items: center; margin-top: 70px;">
+    <div style="margin-top: 70px;" class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Beautiful Hotel</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">this hotel</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Hotel link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <h2 style="text-align: center;">Other rooms</h2>
+</div>
+ 

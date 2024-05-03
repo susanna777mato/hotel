@@ -1,0 +1,10 @@
+
+  <div class="container">
+    <nav>
+      <a class="navbar-a" [ngClass]="{'activite': tabName === 'Home'}" (click)="clicTabName('Home')" routerLink="">Home</a>
+      <a class="navbar-a" [ngClass]="{'activite': tabName === 'Rooms'}" (click)=" clickroom ('Rooms')" routerLink="/Room-page">Rooms</a>
+      <a class="navbar-a" [ngClass]="{'activite': tabName === 'Hotels'}" (click)="clicTabName('Hotels')" routerLink="/Hotel-page">Hotels</a>
+      <a class="navbar-a" [ngClass]="{'activite': tabName === 'Booked Rooms'}" (click)="clicTabName('Booked Rooms')"routerLink="/Booked-page">Booked Rooms</a>
+    </nav>
+  </div>
+

@@ -1,0 +1,103 @@
+
+
+.container{
+    display: flex;
+    gap: 50px;
+
+}
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 15px;
+    gap: 14px;
+    height: 580px;
+    width: 400px;
+}
+
+.nameinput-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-input{
+    height: 40px;
+    padding: 10px;
+}
+
+.junior-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+ .night {
+    color: rgba(86, 85, 85, 0.478);
+}
+
+
+.check{
+    width: 367px;
+    height: 40px;
+    padding: 10px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+.buto{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    background-color: aqua;
+    color: white;
+}
+
+.infodiv{
+   min-height: 100vh;
+}
+
+.title-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.colum {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.footer{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.first{
+    display: flex;
+    flex-direction: column;
+}
+
+pre{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container-footer{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;
+}
+
