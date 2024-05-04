@@ -127,5 +127,15 @@ Hic delectus in placeat praesentium autem deserunt voluptas possimus?
   <br>
   <hr>
   <h2 style="text-align: center;">Other rooms</h2>
+  <div *ngIf="carts.img3fotos && carts.img3fotos.length > 0"  class="d-flex flex-wrap justify-content-center card-divi">
+    <div *ngFor="let room of carts.img3fotos.slice(0, 3)" class="card" style="width: 18rem">
+      <img [src]="room.images[1].source" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{room.name}}</h5>
+        <p class="card-text">Price: {{room.pricePerNight}} $</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div> 
 </div>
  

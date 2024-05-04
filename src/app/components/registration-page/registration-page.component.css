@@ -16,6 +16,11 @@
     width: 400px;
 }
 
+.card-divi{
+    display: flex;
+    gap: 10px;
+}
+
 .nameinput-div{
     display: flex;
     flex-direction: column;

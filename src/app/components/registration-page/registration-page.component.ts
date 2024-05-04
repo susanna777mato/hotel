@@ -5,6 +5,7 @@ import { RoomPageService } from 'src/app/sercvices/room-page.service';
 import { BookedRooms } from 'src/app/booked-rooms';
 import { BookedPageService } from 'src/app/sercvices/booked-page.service';
 import Swal from 'sweetalert2';
+import { CartsMenegmentService } from 'src/app/sercvices/carts-menegment.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -15,7 +16,8 @@ export class RegistrationPageComponent implements OnInit {
   constructor(
     public registration: RegistrationPageService,
     private roompage: RoomPageService,
-    private postRecvest: BookedPageService
+    private postRecvest: BookedPageService,
+    public carts: CartsMenegmentService
   ) {}
 
   caruselImageSubscritption: Subscription | undefined;
@@ -45,6 +47,7 @@ export class RegistrationPageComponent implements OnInit {
   lastPhoto: any = [];
 
   idDeletItem: number = 0;
+  img3Fotos: any
 
   ngOnInit(): void {
     this.caruselImageSubscritption = this.roompage.cartsRoomId.subscribe(

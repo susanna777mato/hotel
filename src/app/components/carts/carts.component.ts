@@ -18,6 +18,7 @@ export class CartsComponent implements OnInit  {
        ngOnInit(): void {
           this.cartsMenegment.addCartsProducts().subscribe((response) => {
           this.rooms = response;
+          this.cartsMenegment.img3fotos = response
           console.log(response)
    
           })

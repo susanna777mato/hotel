@@ -18,8 +18,9 @@ export class CartsMenegmentService {
 
   hotelIddSubscription: Subscription | undefined;
     roomData: any[] = [];
-
+    img3fotos: any
     rooms: any[] = [];
+    foto3: any
 
     clickRoomData() {
       this.hotelIddSubscription = this.roompage.activeCategoryId.subscribe((hotelId: number | null) => {
