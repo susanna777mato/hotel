@@ -1,22 +1,27 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { BookedPageService } from 'src/app/sercvices/booked-page.service';
 import { BookedRooms } from 'src/app/booked-rooms';
 import { RegistrationPageService } from 'src/app/sercvices/registration-page.service';
 import { RoomPageService } from 'src/app/sercvices/room-page.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-booked-page',
   templateUrl: './booked-page.component.html',
   styleUrls: ['./booked-page.component.css']
 })
-export class BookedPageComponent implements OnInit {
+export class BookedPageComponent implements OnInit, OnDestroy {
+  datasubject: BehaviorSubject<any> = new BehaviorSubject<any>(null)
+  private subscraption: Subscription;
+
     constructor( private postbooked: BookedPageService ,
       public registr: RegistrationPageService,
       private room: RoomPageService,
       private route: ActivatedRoute
-    ) {}
+    ) {
+      this.subscraption = this.datasubject.subscribe((data) => {})
+     }
 
    checkInDate: any
    checkOutDate = ""
@@ -37,7 +42,7 @@ export class BookedPageComponent implements OnInit {
       }
         
      
-          this.registr.roomTypeId.subscribe (
+     this.subscraption =  this.registr.roomTypeId.subscribe (
           (hotel: number | null) => {
             this.room.getfiltrRoomIdData(hotel as number).subscribe(
               (response) => {
@@ -71,5 +76,11 @@ export class BookedPageComponent implements OnInit {
    }
 
    myArry = Object.entries(this.registr.hotelIdData)
+
+   ngOnDestroy(): void {
+     if(this.subscraption) {
+      this.subscraption.unsubscribe()
+     }
+   }
   
 }

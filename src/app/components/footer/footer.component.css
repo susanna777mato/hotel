@@ -35,10 +35,7 @@ a {
     color: rgba(255, 255, 255, 0.684);
 }
 
-.footer-containere{
-    display: flex;
-    justify-content: flex-end;
-}
+
 
 .span-footer{
     background-color: black;
@@ -46,6 +43,5 @@ a {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
    color: rgba(255, 255, 255, 0.518);
 }

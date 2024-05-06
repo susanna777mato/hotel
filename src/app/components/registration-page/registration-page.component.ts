@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription, } from 'rxjs';
 import { RegistrationPageService } from 'src/app/sercvices/registration-page.service';
 import { RoomPageService } from 'src/app/sercvices/room-page.service';
@@ -12,7 +12,8 @@ import { CartsMenegmentService } from 'src/app/sercvices/carts-menegment.service
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.css'],
 })
-export class RegistrationPageComponent implements OnInit {
+export class RegistrationPageComponent implements OnInit, OnDestroy {
+  unavailableDates: Date[] = this.registration.idData
   constructor(
     public registration: RegistrationPageService,
     private roompage: RoomPageService,
@@ -28,9 +29,9 @@ export class RegistrationPageComponent implements OnInit {
   checkOutDate = '';
   totalPrice = 0;
   isConfirmed = true;
-  customerName = '';
+  customerName: any;
   customerId = '';
-  customerPhone = '';
+  customerPhone: any;
   roomID = 0;
   cheko = ""
 
@@ -48,6 +49,9 @@ export class RegistrationPageComponent implements OnInit {
 
   idDeletItem: number = 0;
   img3Fotos: any
+
+  allData: any
+
 
   ngOnInit(): void {
     this.caruselImageSubscritption = this.roompage.cartsRoomId.subscribe(
@@ -77,6 +81,8 @@ export class RegistrationPageComponent implements OnInit {
 
   }
 
+ 
+
   clickDate() {
     const date1 = new Date(this.checkInDate);
     const date2 = new Date(this.checkOutDate);
@@ -87,7 +93,16 @@ export class RegistrationPageComponent implements OnInit {
     this.totalPrice = differenceInDays * this.priceNight;
   }
 
-
+  
+  restartData() {
+    this.checkInDate = '';
+    this.checkOutDate = '';
+    this.totalPrice = 0;
+    this.customerName = '';
+    this.customerId = '';
+    this.customerPhone = '';
+    this.roomID = 0;
+  }
 
 
   dataYestOnit() {
@@ -106,9 +121,32 @@ export class RegistrationPageComponent implements OnInit {
 
     console.log(this.registration.registrData);
 
+
+    if(this.registration.registrData.includes(this.allData)) {
+      console.log( "aba")
+      Swal.fire("სამწუხაროდ არჩეული თარიღები უკვე დაკავებულია")
+      this.restartData()
+}
+     if (this.customerName === "" && this.customerPhone === "" ) {
+      Swal.fire("მონაცემების შეყვანა აუცილებელია!")
+      return
+    }
+
+    else if(isNaN(this.customerPhone) ) {
+      Swal.fire("გთხოვთ შეიყვანოთ ტელეფონის ნომერი")
+      return
+    }
+
+    else if(!isNaN(this.customerName) ) {
+      Swal.fire("სახელი უნდა ოყოს დაწერილი მხოლოდ ასოებით")
+      return
+    }
+
     for (const item of this.registration.registrData) {
       this.postRecvest.postRecvaiteBook(item).subscribe((response: any) => {
+        console.log("es pirvelia" + response)
         this.postRecvest.getBookData().subscribe((response) => {
+            this.allData = [response]
           const pric = response[response.length - 1];
           this.registration.hotelIdData = this.images1;
           this.registration.deletId = this.idDeletItem;
@@ -117,15 +155,14 @@ export class RegistrationPageComponent implements OnInit {
           console.log(this.registration.idData);
 
            Swal.fire('გილოცავთ ოთახი წარმატებით დაიჯავშნა');
-          this.checkInDate = '';
-          this.checkOutDate = '';
-          this.totalPrice = 0;
-          this.customerName = '';
-          this.customerId = '';
-          this.customerPhone = '';
-          this.roomID = 0;
+           this.restartData()
         });
       });
+  }
+  }
+  ngOnDestroy(): void {
+    if(this.caruselImageSubscritption) {
+      this.caruselImageSubscritption.unsubscribe()
     }
   }
 }
